@@ -22,7 +22,7 @@ jobs:
     - name: Build
       shell: bash
       run: |
-        cmake --build ./build --config $BUILD_TYPE
+        cmake --build ./build --config Release
         windeployqt --release --verbose 2 bin/Release/file-explorer.exe
         windeployqt --release --verbose 2 bin/Release/hex-viewer.exe
         
@@ -46,12 +46,12 @@ jobs:
         modules: 'core gui widgets'
 
     - name: Create Build Environment
-      run: cmake -S . -B build -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+      run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       shell: bash
       run: |
-        cmake --build ./build --config $BUILD_TYPE
+        cmake --build ./build --config Release
         pwd
         ls
         
